@@ -1,10 +1,54 @@
 ﻿@page
-@model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "SignalR Chat";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="card-header d-flex align-items-center">
+            <h3 class="mb-0">Pedidos en vivo</h3>
+        </div>
+
+        <div class="card-body d-flex flex-column gap-3">
+
+            @*Usuario*@
+            <div>
+                <label class="form-label fw-bold" for="userInput">Usuario</label>
+                <input class="form-control" placeholder="Ej: Juanito Lopez" id="userInput" maxlength="40" />
+            </div>
+
+            @*ComboBox para los estados*@
+            <div>
+                <label class="form-label fw-bold" for="stateInput">Estado del pedido</label>
+                <select class="form-select" id="stateInput" required>
+                    <option value="" selected disabled>Elige un estado</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En Preparación">En Preparación</option>
+                    <option value="Enviado">Enviado</option>
+                    <option value="Entregado">Entregado</option>
+                </select>
+            </div>
+
+            @*Boton para enviar*@
+            <button class="btn btn-primary" id="sendButton" disabled>
+                Enviar
+            </button>
+        </div>
+    
+        @*Estado del servidor*@
+        <div class="card-footer">
+            <p class="mb-0" id="status">Conectando...</p>
+        </div>
+    </div>
+
+    @*Vista de pedidos y sus estados*@
+    <div class="mt-4">
+        <h5 class="mb-3">Pedidos</h5>
+        <ul id="ordersList" class="list-group"></ul>
+    </div>
 </div>
+
+@*Lista y scripts*@
+<script src="~/js/signalr/dist/browser/signalr.min.js">
+</script>
+<script src="~/js/order.js"></script>
