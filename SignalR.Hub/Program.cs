@@ -22,6 +22,6 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("ClientPolicy");
 
-app.MapHub<OrderHub>("/chatHub");
+app.MapHub<OrderHub>("/orderHub");
 
 app.Run();
