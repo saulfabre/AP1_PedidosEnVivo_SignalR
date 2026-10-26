@@ -18,3 +18,7 @@
 
 ## Funcionamiento
 La aplicación utiliza SignalR para enviar y recibir notificaciones de pedidos en tiempo real. Los estados se muestran con badges de distintos colores mediante Bootstrap.
+
+## Diagrama de arquitectura
+
+![Diagrama de arquitectura](docs/ArquitecturaSignalR.png)
